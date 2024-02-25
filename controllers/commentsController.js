@@ -13,9 +13,7 @@ exports.createComments = async (req, res)=>{
       const { post, user, body } = req.body;
       //create a comments object
       const comment = new Comments({
-        post,
-        user,
-        body,
+        post, user,body
       });
       //save the new comment into the database
       const savedComment = await comment.save();
@@ -31,7 +29,7 @@ exports.createComments = async (req, res)=>{
 
     res.json({
         post:updatePost,
-    })
+    });
 
 
     }
@@ -39,6 +37,6 @@ exports.createComments = async (req, res)=>{
      catch(error){
         return res.status(500).json({
             error:"Error while Creating comments",
-        })
+        });
      }
 }
